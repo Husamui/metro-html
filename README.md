@@ -1,14 +1,14 @@
 # Metro.HTML
 
-Mertro html is well stractured fast and robust starter template to build your web app very quick, It's build using [html5 Boilerplate] but fully customized and a lot smarter, It's replacement to html5 Boilerplate.
+Mertro html is a well structured fast and robust starter template to build your web apps very quickly. It's built using [html5 Boilerplate] but fully customized and a lot smarter. It's meant to be a replacement of html5 Boilerplate.
 ### Tech
 Metro.html uses a number of open source projects to work properly:
   
 * [Node.js] - Run Http Server, Gulp, Sass, It's the core of our tools logic
 * [NPM] - To install node packages
 * [Gulp] - the streaming build system
-* [SASS] - Great way to write css extremely fast and organized styles files 
-* [Twitter Bootstrap] - Responsive freamework
+* [SASS] - Great way to write CSS extremely fast and organize style files 
+* [Twitter Bootstrap] - Responsive CSS freamework
 * [jQuery] - for DOM manipulation library
 
 ### Version
@@ -20,10 +20,10 @@ Before installing Metro.html you need to have installed:
 * [Gulp]
 * [SASS]
 
-If you have already installed these techs go ahead and install Metro.html other ways click on the missing tech to read instructions on how to install it.
+If you have already installed these techs go ahead and install Metro.html otherwise click on the missing tech to read instructions on how to install it.
 #### 1. Installing node
-Well the best way to install node is to install it thrught homebrew [why]. <br/>
-if you have already installed [homebrew] go ahed and run node install command. otherways here is instructions to install [homebrew]:
+The best way to install node on OSx is to install it through Homebrew [why]. <br/>
+if you have already installed [homebrew] go ahead and run node install command. otherwise here is instructions to install [homebrew]:
 > ###### Install Homebrew
 ```sh
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
