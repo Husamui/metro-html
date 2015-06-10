@@ -7,7 +7,7 @@ Metro.html uses a number of open source projects to work properly:
 * [Node.js] - Run Http Server, Gulp, Sass, It's the core of our tools logic
 * [NPM] - To install node packages
 * [Gulp] - the streaming build system
-* [SASS] - Great way to write CSS extremely fast and organize style files 
+* [SASS] - Great way to write CSS extremely fast and organize style files.  Metro.HTML uses [gulp-sass] to compile SASS.
 * [Twitter Bootstrap] - Responsive CSS freamework
 * [jQuery] - for DOM manipulation library
 
@@ -18,7 +18,6 @@ Metro.html uses a number of open source projects to work properly:
 Before installing Metro.html you need to have installed:
 * [Node.js]
 * [Gulp]
-* [SASS]
 
 If you have already installed these techs go ahead and install Metro.html otherwise click on the missing tech to read instructions on how to install it.
 #### 1. Installing node
@@ -37,12 +36,6 @@ brew install node
 ```sh
 npm install --global gulp
 ```
-
-#### 3. Installing SASS
-```sh
-sudo gem install sass
-```
-
 
 ___
 ### Metro.Html Installation
@@ -74,6 +67,7 @@ MIT
 [Gulp]:http://gulpjs.com
 [NPM]:https://www.npmjs.com/
 [SASS]:http://sass-lang.com/
+[gulp-sass]:https://github.com/dlmanning/gulp-sass
 [why]:http://blog.teamtreehouse.com/install-node-js-npm-mac
  
 

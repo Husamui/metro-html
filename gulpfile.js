@@ -2,11 +2,11 @@ var fs = require('fs');
 var path = require('path');
 
 var gulp = require('gulp'),
-uglifycss = require('gulp-uglifycss'),
-browserSync  = require('browser-sync'),
-reload       = browserSync.reload,
-sass         = require('gulp-ruby-sass'),
-autoprefixer = require('gulp-autoprefixer');
+    uglifycss = require('gulp-uglifycss'),
+    browserSync = require('browser-sync'),
+    reload = browserSync.reload,
+    sass = require('gulp-sass'),
+    autoprefixer = require('gulp-autoprefixer');
 
 // Load all gulp plugins automatically
 // and attach them to the `plugins` object
@@ -80,40 +80,40 @@ gulp.task('copy', [
 
 gulp.task('copy:.htaccess', function () {
     return gulp.src('node_modules/apache-server-configs/dist/.htaccess')
-               .pipe(plugins.replace(/# ErrorDocument/g, 'ErrorDocument'))
-               .pipe(gulp.dest(dirs.dist));
+        .pipe(plugins.replace(/# ErrorDocument/g, 'ErrorDocument'))
+        .pipe(gulp.dest(dirs.dist));
 });
 
 gulp.task('copy:index.html', function () {
     return gulp.src(dirs.src + '/index.html')
-               .pipe(plugins.replace(/{{JQUERY_VERSION}}/g, pkg.devDependencies.jquery))
-               .pipe(gulp.dest(dirs.dist));
+        .pipe(plugins.replace(/{{JQUERY_VERSION}}/g, pkg.devDependencies.jquery))
+        .pipe(gulp.dest(dirs.dist));
 });
 
 gulp.task('copy:jquery', function () {
     return gulp.src(['node_modules/jquery/dist/jquery.min.js'])
-               .pipe(plugins.rename('jquery-' + pkg.devDependencies.jquery + '.min.js'))
-               .pipe(gulp.dest(dirs.dist + '/js/vendor'));
+        .pipe(plugins.rename('jquery-' + pkg.devDependencies.jquery + '.min.js'))
+        .pipe(gulp.dest(dirs.dist + '/js/vendor'));
 });
 
 gulp.task('copy:license', function () {
     return gulp.src('LICENSE.txt')
-               .pipe(gulp.dest(dirs.dist));
+        .pipe(gulp.dest(dirs.dist));
 });
 
 gulp.task('copy:main.css', function () {
 
     var banner = '/*! HTML5 Boilerplate v' + pkg.version +
-                    ' | ' + pkg.license.type + ' License' +
-                    ' | ' + pkg.homepage + ' */\n\n';
+        ' | ' + pkg.license.type + ' License' +
+        ' | ' + pkg.homepage + ' */\n\n';
 
     return gulp.src(dirs.src + '/css/main.css')
-               .pipe(plugins.header(banner))
-               .pipe(plugins.autoprefixer({
-                   browsers: ['last 2 versions', 'ie >= 8', '> 1%'],
-                   cascade: false
-               }))
-               .pipe(gulp.dest(dirs.dist + '/css'));
+        .pipe(plugins.header(banner))
+        .pipe(plugins.autoprefixer({
+        browsers: ['last 2 versions', 'ie >= 8', '> 1%'],
+        cascade: false
+    }))
+        .pipe(gulp.dest(dirs.dist + '/css'));
 });
 
 gulp.task('copy:misc', function () {
@@ -129,10 +129,10 @@ gulp.task('copy:misc', function () {
 
     ], {
 
-        // Include hidden files by default
-        dot: true
+            // Include hidden files by default
+            dot: true
 
-    }).pipe(gulp.dest(dirs.dist));
+        }).pipe(gulp.dest(dirs.dist));
 });
 
 gulp.task('lint:js', function () {
@@ -141,9 +141,9 @@ gulp.task('lint:js', function () {
         dirs.src + '/js/*.js',
         dirs.test + '/*.js'
     ]).pipe(plugins.jscs())
-      .pipe(plugins.jshint())
-      .pipe(plugins.jshint.reporter('jshint-stylish'))
-      .pipe(plugins.jshint.reporter('fail'));
+        .pipe(plugins.jshint())
+        .pipe(plugins.jshint.reporter('jshint-stylish'))
+        .pipe(plugins.jshint.reporter('fail'));
 });
 
 
@@ -156,26 +156,28 @@ gulp.task('archive', function (done) {
         'build',
         'archive:create_archive_dir',
         'archive:zip',
-    done);
+        done);
 });
 
 gulp.task('build', function (done) {
     runSequence(
         ['clean', 'lint:js'],
         'copy',
-    done);
+        done);
 });
 
 gulp.task('default', ['serve']);
 
-gulp.task('style', function(){
-    return sass('./sass/style.scss',{style: 'expanded'})
-    .pipe(autoprefixer({
+gulp.task('style', function () {
+    //changed to use 'gulp-sass'
+    return gulp.src('./sass/**/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer({
         browsers: ['last 4 versions'],
         cascade: false
     }))
     // .pipe(uglifycss())
-    .pipe(gulp.dest('app/css'));
+        .pipe(gulp.dest('app/css'));
 });
 
 gulp.task('serve', ['style'], function () {
@@ -185,10 +187,10 @@ gulp.task('serve', ['style'], function () {
         server: ['app']
     });
     // gulp.watch(['app/*.*'], ['html',reload]);
-    gulp.watch(['app/*.html'],reload);
+    gulp.watch(['app/*.html'], reload);
     gulp.watch(['sass/*.*'], ['style', reload]);
-    gulp.watch(['sass/*/*.*'],['style', reload]);
-    gulp.watch(['sass/*/*/*.*'],['style', reload]);
+    gulp.watch(['sass/*/*.*'], ['style', reload]);
+    gulp.watch(['sass/*/*/*.*'], ['style', reload]);
 
 });
 
