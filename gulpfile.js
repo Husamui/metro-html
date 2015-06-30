@@ -177,21 +177,21 @@ gulp.task('style', function () {
         cascade: false
     }))
     // .pipe(uglifycss())
-        .pipe(gulp.dest('app/css'));
+        .pipe(gulp.dest('src/asset/css'));
 });
 
 gulp.task('serve', ['style'], function () {
     browserSync({
         notify: false,
         logPrefix: 'Mr. Robot',
-        server: ['app']
+        server: ['src']
     });
     // gulp.watch(['app/*.*'], ['html',reload]);
-    gulp.watch(['app/*.html'], reload);
+    gulp.watch(['src/*.html'], reload);
+    gulp.watch(['src/app/*.*'], reload);
+    gulp.watch(['src/app/*/*.*'], reload);
     gulp.watch(['sass/*.*'], ['style', reload]);
     gulp.watch(['sass/*/*.*'], ['style', reload]);
     gulp.watch(['sass/*/*/*.*'], ['style', reload]);
 
 });
-
-
