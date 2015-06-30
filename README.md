@@ -3,7 +3,7 @@
 Mertro html is a well structured fast and robust starter template to build your web apps very quickly. It's built using [html5 Boilerplate] but fully customized and a lot smarter. It's meant to be a replacement of html5 Boilerplate.
 ### Tech
 Metro.html uses a number of open source projects to work properly:
-  
+
 * [Node.js] - Run Http Server, Gulp, Sass, It's the core of our tools logic
 * [NPM] - To install node packages
 * [Gulp] - the streaming build system
@@ -69,6 +69,4 @@ MIT
 [SASS]:http://sass-lang.com/
 [gulp-sass]:https://github.com/dlmanning/gulp-sass
 [why]:http://blog.teamtreehouse.com/install-node-js-npm-mac
- 
-
-
+[homebrew]:http://brew.sh/
